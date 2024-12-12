@@ -79,7 +79,7 @@ const Home = () => {
         <h2 className="text-3xl font-extrabold text-gray-900 mb-8">Featured Courses</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {studentViewCoursesList && studentViewCoursesList.length > 0 ? (
-            studentViewCoursesList.map((courseItem) => (
+            studentViewCoursesList.slice(0,4).map((courseItem) => (
               <div
                 key={courseItem?._id}
                 className="border border-gray-200 rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transform hover:scale-105 transition cursor-pointer"

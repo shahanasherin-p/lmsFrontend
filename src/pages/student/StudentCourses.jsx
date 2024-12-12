@@ -21,11 +21,15 @@ const StudentCourses = () => {
     const response = await fetchStudentBoughtCoursesAPI(auth?.user?.id);
     if (response?.success) {
       setStudentBoughtCoursesList(response?.data);
+      
     }
   };
 
+
+  
+
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
+    <div className="p-6 bg-gray-50 min-h-screen mt-20">
       <h1 className="text-4xl font-extrabold mb-8 text-gray-800">My Courses</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {studentBoughtCoursesList && studentBoughtCoursesList.length > 0 ? (
@@ -36,7 +40,7 @@ const StudentCourses = () => {
             >
               <CardContent className="p-4 flex-grow">
                 <img
-                  src={course?.image}
+                  src={course?.courseImage}
                   alt={course?.title}
                   className="h-52 w-full object-cover rounded-md mb-4"
                 />
@@ -45,7 +49,7 @@ const StudentCourses = () => {
               </CardContent>
               <CardFooter className="p-4">
                 <Button
-                  onClick={() => navigate(`/course-progress/${course?._id}`)}
+                  onClick={() => navigate(`/course-progress/${course?.courseId}`)}
                   className="w-full flex items-center justify-center bg-purple-600 text-white hover:bg-purple-700 font-medium rounded-md shadow transition"
                 >
                   <Watch className="mr-2 h-4 w-4" />
